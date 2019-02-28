@@ -1,21 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+/**
+ * @author Mahmud Ahsan <https://github.com/mahmudahsan>
+ */
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Let's Make a Todo</Text>
-      </View>
-    );
-  }
-}
+ import { 
+  createBottomTabNavigator,
+  createStackNavigator,
+  createAppContainer 
+} from 'react-navigation';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+import TodayScreen from './screens/TodayScreen';
+import ArchivedScreen from './screens/ArchivedScreen';
+
+// Stack Navigation
+const TodayStack = createStackNavigator({
+  Today: TodayScreen,
+})
+
+const ArchivedStack = createStackNavigator({
+  Archived: ArchivedScreen
+})
+
+// Tab Navigation
+const TabNavigator = createBottomTabNavigator({
+  Today: TodayStack,
+  Archived: ArchivedStack,
 });
+
+export default createAppContainer(TabNavigator);
