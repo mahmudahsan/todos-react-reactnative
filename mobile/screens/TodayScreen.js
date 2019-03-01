@@ -3,20 +3,37 @@
  */
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Config from '../config/Settings';
+import { View, StyleSheet } from 'react-native';
 import AddTodo from '../components/AddTodo';
+import Config, { TODOSTATUS } from '../config/Settings';
 import TodoList from '../components/TodoList';
+import uuid4 from 'uuid/v4';
+import model from '../model/Model';
 
 export default class TodayScreen extends React.Component {
   state = {
-    // list of todos
+    // list of todos object [{id, title, created, status},]
     data: [],
-  }
+  };
   
   static navigationOptions = {
     title: Config.appTitle,
   };
+
+  constructor(props){
+    super(props);
+  }
+
+  componentDidMount(){
+    model.readTodoList().then((todoList) => {
+      const sortedTodoList = todoList.sort((a, b) => {
+        return a.created < b.created;
+      });
+      this.setState({
+        data: sortedTodoList
+      })
+    });
+  }
 
   render() {
     return (
@@ -29,11 +46,21 @@ export default class TodayScreen extends React.Component {
 
   // Pass this prop to AddTodo
   onTodoAdd = (text) => {
-    // console.log(text);
-
+    const todoItem = {
+      id: uuid4(),
+      title: text,
+      created: Date.now(),
+      status: TODOSTATUS.active
+    }
+    //console.log(todoItem);
     this.setState((prevState) => ({
-      data: [text, ...prevState.data]
-    })); 
+      data: [todoItem, ...prevState.data]
+    }),
+      () => {
+        // Call Model to save data permanently
+        model.createTodo(todoItem);
+      }
+    ); 
   };
 }
 

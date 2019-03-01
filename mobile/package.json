@@ -13,7 +13,8 @@
     "react-native-elements": "^1.1.0",
     "react-native-linear-gradient": "^2.5.3",
     "react-native-touchable-scale": "^2.0.0",
-    "react-navigation": "^3.3.2"
+    "react-navigation": "^3.3.2",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"

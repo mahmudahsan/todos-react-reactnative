@@ -11,10 +11,10 @@ export default class TodoList extends React.Component {
     return (
       <View>
         {
-          this.props.data.map((title, index) => (
+          this.props.data.map((todoItem) => (
             <TodoListItem 
-              key={index} 
-              title={title} 
+              key={todoItem.id} 
+              title={todoItem.title} 
               startColor={'#1098c2'}
               endColor={'#b7e0ec'}
             />
