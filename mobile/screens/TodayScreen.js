@@ -25,13 +25,16 @@ export default class TodayScreen extends React.Component {
   }
 
   componentDidMount(){
-    model.readTodoList().then((todoList) => {
+    // Retrieving data from disk
+    model.readTodoList(TODOSTATUS.active).then((todoList) => {
       const sortedTodoList = todoList.sort((a, b) => {
         return a.created < b.created;
       });
       this.setState({
         data: sortedTodoList
       })
+
+      //console.log(sortedTodoList);
     });
   }
 
@@ -39,7 +42,10 @@ export default class TodayScreen extends React.Component {
     return (
       <View style={styles.container}>
         <AddTodo onTodoAdd={this.onTodoAdd} />
-        <TodoList data={this.state.data} />
+        <TodoList 
+          data={this.state.data} 
+          onTodoUpdate={this.onTodoUpdate}
+        />
       </View>
     );
   }
@@ -62,6 +68,20 @@ export default class TodayScreen extends React.Component {
       }
     ); 
   };
+
+  // Pass this prop to TodoList
+  onTodoUpdate = (indexOfTodoItem) => {
+    //console.log("on todo update: " + indexOfTodoItem);
+    //modify data 
+    let allData = [...this.state.data];
+    allData[indexOfTodoItem].status = TODOSTATUS.done;
+    this.setState({
+      data: allData.filter(todo=>(todo.status === TODOSTATUS.active))
+    }, ()=> {
+      // update data permanently
+      model.updateTodo(allData[indexOfTodoItem], TODOSTATUS.done);
+    })
+  }
 }
 
 const styles = StyleSheet.create({

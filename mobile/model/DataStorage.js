@@ -5,6 +5,7 @@
 */
 
 import { AsyncStorage } from 'react-native';
+import { TODOSTATUS } from '../config/Settings';
 
 export default class DataStorage {
   createData = async (id, dataString) => {
@@ -14,22 +15,31 @@ export default class DataStorage {
     catch(error){ 
       console.log("Error saving data");
     }
-  }
+  };
 
-  readAllData = (keys) => {
+  readAllData = (filter) => {
     return new Promise((resolve, reject) => {
       AsyncStorage.getAllKeys((err, keys) => {
         AsyncStorage.multiGet(keys, (err, result) => {
           let todoList = [];
+          
           result.map((item) => {
             //item[0] = key | item[1] = value
             const todo = JSON.parse(item[1]);
-            todoList.push(todo);
+            
+            if (filter !== undefined && todo.status === filter){
+              //based on filter
+              todoList.push(todo);
+            }
+            
+            if (filter === undefined ) {
+              // any
+              todoList.push(todo);
+            }
           });
-          
           resolve(todoList);
         });
       });
     });
-  }
+  };
 }
