@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import { Animated } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import TouchableScale from 'react-native-touchable-scale';
 

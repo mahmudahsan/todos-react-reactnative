@@ -6,7 +6,6 @@
  */
 
 import DataStorage from './DataStorage';
-import { TODOSTATUS } from '../config/Settings';
 
 class Model { 
   constructor(){

@@ -10,6 +10,7 @@
     "expo": "^32.0.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-action-button": "^2.8.5",
     "react-native-elements": "^1.1.0",
     "react-native-linear-gradient": "^2.5.3",
     "react-native-touchable-scale": "^2.0.0",

@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Keyboard } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 
 export default class AddTodo extends React.Component {
@@ -21,6 +21,8 @@ export default class AddTodo extends React.Component {
           leftIconContainerStyle = {{paddingRight: 10}}
           onChangeText={(text)=> this.setState({inputText: text})}
           value={this.state.inputText}
+          returnKeyType="done"
+          onSubmitEditing={this.onEnterPress}
         />
         <Button
           buttonStyle={{backgroundColor: '#1098c2'}}
@@ -29,6 +31,11 @@ export default class AddTodo extends React.Component {
         />
       </View>
     );
+  }
+
+  // Enter press
+  onEnterPress = (event) => {
+    this.onAddPress();
   }
 
   // Add Button
@@ -43,6 +50,7 @@ export default class AddTodo extends React.Component {
       // Add in database
       this.setState({inputText: ""});
       this.props.onTodoAdd(cleanString);
+      Keyboard.dismiss();
     }
 
   };

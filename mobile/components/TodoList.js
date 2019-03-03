@@ -5,7 +5,6 @@
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
 import TodoListItem from '../components/TodoListItem';
-import { TODOSTATUS } from '../config/Settings';
 
 export default class TodoList extends React.Component {
 

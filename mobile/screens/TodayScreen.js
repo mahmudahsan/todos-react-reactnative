@@ -20,10 +20,6 @@ export default class TodayScreen extends React.Component {
     title: Config.appTitle,
   };
 
-  constructor(props){
-    super(props);
-  }
-
   componentDidMount(){
     // Retrieving data from disk
     model.readTodoList(TODOSTATUS.active).then((todoList) => {
@@ -87,8 +83,10 @@ export default class TodayScreen extends React.Component {
 const styles = StyleSheet.create({
   container : {
     flex: 1,
-    margin: 2,
+    marginLeft: 2,
+    marginRight: 2,
     marginTop: 5,
+    marginBottom: 30,
     flexDirection: 'column',
     justifyContent: 'flex-start',
   },
