@@ -2,6 +2,7 @@
  * @author Mahmud Ahsan <https://github.com/mahmudahsan>
  * 
  * 'DataStorage' class is responsible to save data permanently
+ *  https://facebook.github.io/react-native/docs/asyncstorage
 */
 
 import { AsyncStorage } from 'react-native';
@@ -38,6 +39,32 @@ export default class DataStorage {
             }
           });
           resolve(todoList);
+        });
+      });
+    });
+  };
+
+  deleteAllArchivedTodoList = () => {
+    return new Promise((resolve, reject) => {
+      AsyncStorage.getAllKeys((err, keys) => {
+        AsyncStorage.multiGet(keys, (err, result) => {
+          let archivedTodoList = [];
+          
+          result.map((item) => {
+            //item[0] = key | item[1] = value
+            const todo = JSON.parse(item[1]);
+            
+            if (todo.status === TODOSTATUS.done ) {
+              archivedTodoList.push(todo.id);
+            }
+          });
+          //remove all done todolist
+          AsyncStorage.multiRemove(archivedTodoList, (err) => {
+            if (err){
+              reject(err);
+            }
+            resolve("done");
+          });
         });
       });
     });

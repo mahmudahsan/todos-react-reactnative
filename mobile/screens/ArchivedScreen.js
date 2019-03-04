@@ -58,20 +58,28 @@ export default class ArchivedScreen extends React.Component {
   );
 
   _onClearArchive = () => {
-    console.log("Clear Archived");
     Alert.alert(
       'Clear Archived',
       'Do you want to clear all the past todos?',
       [
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
           style: 'cancel',
         },
         {
           text: 'Yes', 
-          onPress: () => console.log('OK Pressed'),
-          style: 'destructive'
+          style: 'destructive',
+          onPress: () => {
+            model.deleteArchivedTodoList()
+            .then(()=>{
+              this.setState({
+                data: []
+              })
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          },
         },
       ],
       {cancelable: false},

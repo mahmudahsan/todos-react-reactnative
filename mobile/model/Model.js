@@ -32,9 +32,8 @@ class Model {
     this.dataStorage.createData(todo.id, todoString);
   };
 
-  deleteTodo = (todo) => {
-    console.log("Delete Todo");
-    console.log(todo);
+  deleteArchivedTodoList = () => {
+    return this.dataStorage.deleteAllArchivedTodoList();
   };
 }
 
