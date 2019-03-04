@@ -5,6 +5,7 @@
 import React from 'react';
 import { StyleSheet, View, Keyboard } from 'react-native';
 import { Button, Input } from 'react-native-elements';
+import Config from '../config/Settings';
 
 export default class AddTodo extends React.Component {
   state = {
@@ -25,7 +26,7 @@ export default class AddTodo extends React.Component {
           onSubmitEditing={this.onEnterPress}
         />
         <Button
-          buttonStyle={{backgroundColor: '#1098c2'}}
+          buttonStyle={{backgroundColor: Config.themeButtonColor}}
           title="ADD"
           onPress={this.onAddPress}  
         />

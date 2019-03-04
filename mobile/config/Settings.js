@@ -5,6 +5,7 @@
 
 const Config = {
   appTitle: 'Todos',
+  themeButtonColor: "#1098c2",
 }
 
 export default Config;

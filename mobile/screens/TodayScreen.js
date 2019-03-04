@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, StatusBar } from 'react-native';
 import AddTodo from '../components/AddTodo';
 import Config, { TODOSTATUS } from '../config/Settings';
 import TodoList from '../components/TodoList';
@@ -21,6 +21,8 @@ export default class TodayScreen extends React.Component {
   };
 
   componentDidMount(){
+    StatusBar.setHidden(false);
+
     // Retrieving data from disk
     model.readTodoList(TODOSTATUS.active).then((todoList) => {
       const sortedTodoList = todoList.sort((a, b) => {
