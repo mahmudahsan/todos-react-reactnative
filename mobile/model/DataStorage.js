@@ -32,8 +32,7 @@ export default class DataStorage {
               //based on filter
               todoList.push(todo);
             }
-            
-            if (filter === undefined ) {
+            else if (filter === undefined ) {
               // any
               todoList.push(todo);
             }

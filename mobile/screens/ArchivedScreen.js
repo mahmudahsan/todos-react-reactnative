@@ -94,11 +94,11 @@ export default class ArchivedScreen extends React.Component {
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />
-        <ActionButton
+        { this.state.data.length > 0 && <ActionButton
           buttonColor="rgba(231,76,60,1)"
           renderIcon={this._renderTrashButtonIcon}
           onPress={this._onClearArchive}
-        />
+        /> }
       </View>
     );
   }

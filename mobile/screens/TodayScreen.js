@@ -57,8 +57,7 @@ export default class TodayScreen extends React.Component {
     //console.log(todoItem);
     this.setState((prevState) => ({
       data: [todoItem, ...prevState.data]
-    }),
-      () => {
+    }), () => {
         // Call Model to save data permanently
         model.createTodo(todoItem);
       }
