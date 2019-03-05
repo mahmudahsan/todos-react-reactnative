@@ -3,7 +3,7 @@
         <img src="https://img.shields.io/badge/build-passing-brightgreen.svg" alt="Build" />
     </a>
     <a href="https://facebook.github.io/react-native/">
-        <img src="https://img.shields.io/badge/react-native-0.58-blue.svg" alt="reactjs" />
+        <img src="https://img.shields.io/badge/reactnative-0.58-blue.svg" alt="reactjs" />
     </a>
     <a href="https://github.com/mahmudahsan/todos-react-reactnative/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" />
@@ -20,13 +20,15 @@ You can easily see the archived list and can delete all.
 
 <p align="center">
     <img src="Resources/Mockup/mobile.png" alt="Mockup" height="400" />
+    <img src="Resources/Mockup/app.gif" alt="App" height="400" />
+    <br />
     <img src="Resources/Mockup/todos-react-native.png" alt="Mockup" />
 </p>
 
-<h2>Demo</h2>
-<p align="center">
-    <img src="Resources/Mockup/DL_google.png" alt="Google Play" height="60" />
-</p>
+# Demo
+- [<img src="Resources/Mockup/DL_google.png" alt="Google Play" height="60" />](https://play.google.com/store/apps/details?id=net.ithinkdiff.todos)
+- [Youtube Demo](https://youtu.be/NvA59aaniOU)
+- [My Other Mobile Apps](https://ithinkdiff.net)
 
 # Table of Contents
 
