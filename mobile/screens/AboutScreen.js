@@ -1,17 +1,19 @@
 /**
  * @author Mahmud Ahsan <https://github.com/mahmudahsan>
  * https://github.com/vonovak/react-navigation-header-buttons
- * Don't use WebView inside other View in render(). Otherwise it will not work.
+ * https://github.com/joinspontaneous/react-native-loading-spinner-overlay
  */
 
  import React from 'react';
- import { View, StyleSheet, WebView, StatusBar } from 'react-native';
+ import { View, WebView } from 'react-native';
 
  import Config from '../config/Settings';
  import { Platform } from 'expo-core';
+ import Spinner from 'react-native-loading-spinner-overlay';
 
  export default class AboutScreen extends React.Component {
   state = {
+    visible: true,
     url: ""
   }
 
@@ -44,23 +46,35 @@
     }
   }
 
+  showSpinner() {
+    this.setState({ visible: true });
+  }
+
+  hideSpinner() {
+    this.setState({ visible: false });
+  }
+
+
   render(){
     //console.log(this.state.url);
     return (
-      <WebView styles={styles.container}
-        originWhitelist={['*']}
-        source={{uri: this.state.url}}
-        useWebKit={true}  //iOS
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        mixedContentMode="always"
-      />
+      <View style={{ flex: 1 }}>
+        <Spinner
+          visible={this.state.visible}
+          textContent={'Loading...'}
+          textStyle={{ color: '#FFF' }}
+        />
+        <WebView
+          originWhitelist={['*']}
+          source={{uri: this.state.url}}
+          useWebKit={true}  //iOS
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          mixedContentMode="always"
+          onLoad={() => this.hideSpinner()}
+          style={{ flex: 1 }}
+        />
+      </View>
     )
   }
  }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
-})
