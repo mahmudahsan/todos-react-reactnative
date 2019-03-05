@@ -27,7 +27,7 @@ You can easily see the archived list and can delete all.
 
 # Demo
 - [<img src="Resources/Mockup/DL_google.png" alt="Google Play" height="60" />](https://play.google.com/store/apps/details?id=net.ithinkdiff.todos)
-- [Youtube Demo](https://youtu.be/NvA59aaniOU)
+- [Youtube Demo](https://www.youtube.com/watch?v=mfwVlMEkmpQ)
 - [My Other Mobile Apps](https://ithinkdiff.net)
 
 # Table of Contents
