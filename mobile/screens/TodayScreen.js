@@ -3,7 +3,10 @@
  */
 
 import React from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Button } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
+
 import AddTodo from '../components/AddTodo';
 import Config, { TODOSTATUS } from '../config/Settings';
 import TodoList from '../components/TodoList';
@@ -16,13 +19,22 @@ export default class TodayScreen extends React.Component {
     data: [],
   };
   
-  static navigationOptions = {
+  static navigationOptions = ( {navigation} ) => ({
     title: Config.appTitle,
-  };
+    headerRight: <Button 
+              type="clear"
+              icon={
+                <Ionicons 
+                  name="ios-information-circle-outline"
+                  size={30}
+                  color={Config.themeButtonColor}
+                />
+              }
+              onPress={()=>{ navigation.navigate('About'); }} 
+            />,
+  });
 
   componentDidMount(){
-    StatusBar.setHidden(false);
-
     // Retrieving data from disk
     model.readTodoList(TODOSTATUS.active).then((todoList) => {
       const sortedTodoList = todoList.sort((a, b) => {

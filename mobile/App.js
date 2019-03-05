@@ -14,10 +14,12 @@ import { Ionicons } from '@expo/vector-icons';
 import TodayScreen from './screens/TodayScreen';
 import ArchivedScreen from './screens/ArchivedScreen';
 import Config from './config/Settings';
+import AboutScreen from './screens/AboutScreen';
 
 // Stack Navigation
 const TodayStack = createStackNavigator({
   Today: TodayScreen,
+  About: AboutScreen,
 })
 
 const ArchivedStack = createStackNavigator({
@@ -36,7 +38,7 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
   }
 
   // You can return any component that you like here!
-  return <IconComponent name={iconName} size={25} color={tintColor} />;
+  return <IconComponent name={iconName} size={22} color={tintColor} />;
 };
 
 // Tab Navigation
