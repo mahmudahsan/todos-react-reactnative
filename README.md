@@ -25,6 +25,9 @@ You can easily see the archived list and can delete all.
     <img src="Resources/Mockup/todos-react-native.png" alt="Mockup" />
 </p>
 
+# React Native Tutorial
+I have started react native tutorial series on Youtube. If you want to learn React Native and related technologies subscribe my [youtube channel](https://www.youtube.com/channel/UCtHlgyUw0wLE5Ous9swfFlg) and follow [React Native Tutorial Playlist](https://www.youtube.com/watch?v=kFEs5WB7NB0&list=PLlMOodDAsO4zOGT-g9wsb2Xwk-3HgvNZD)
+
 # Demo
 - [<img src="Resources/Mockup/DL_google.png" alt="Google Play" height="60" />](https://play.google.com/store/apps/details?id=net.ithinkdiff.todos)
 - [Youtube Demo](https://www.youtube.com/watch?v=mfwVlMEkmpQ)
