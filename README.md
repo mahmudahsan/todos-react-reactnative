@@ -30,7 +30,6 @@ I have started react native tutorial series on Youtube. If you want to learn Rea
 
 # Demo
 - [<img src="Resources/Mockup/DL_google.png" alt="Google Play" height="60" />](https://play.google.com/store/apps/details?id=net.ithinkdiff.todos)
-- [<img src="Resources/Mockup/DL_apple.png" alt="Apple Store" height="60" />](https://itunes.apple.com/us/app/todos-let-it-finish/id1455174510?ls=1&mt=8)
 - [Youtube Demo](https://www.youtube.com/watch?v=mfwVlMEkmpQ)
 - [My Other Mobile Apps](https://ithinkdiff.net)
 
